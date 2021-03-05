@@ -16,6 +16,8 @@ public:
 		DEFINE_MEMBER_N(int, m_iHealth, hazedumper::netvars::m_iHealth);
 		DEFINE_MEMBER_N(vec3, m_vecViewOffset, hazedumper::netvars::m_vecViewOffset);
 		DEFINE_MEMBER_N(int, m_iDefaultFOV, hazedumper::netvars::m_iDefaultFOV);
+		DEFINE_MEMBER_N(int, m_fFlags, hazedumper::netvars::m_fFlags);
+		DEFINE_MEMBER_N(int, dwForceJump, hazedumper::signatures::dwForceJump);
 	};
 };
 

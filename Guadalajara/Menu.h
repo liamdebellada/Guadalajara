@@ -3,5 +3,6 @@
 namespace menu {
 	extern int fov;
 	extern bool changedTag;
+	extern bool isBhop;
 	void main();
 }

@@ -16,14 +16,11 @@
     <Filter Include="ImGui">
       <UniqueIdentifier>{58484a83-696d-40fd-a6a8-dcb44ab85538}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Hacks">
-      <UniqueIdentifier>{7f827df7-61bb-47ce-9e2c-a71f5316450a}</UniqueIdentifier>
+    <Filter Include="Header Files\Hacks">
+      <UniqueIdentifier>{12d7d0bc-2c31-4bf4-8026-57bc19be9602}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Hacks\Headers">
-      <UniqueIdentifier>{665e3b04-6266-4c5d-ba29-b50ec89068b6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Hacks\Sources">
-      <UniqueIdentifier>{f0f4d7f0-d5cd-4ef9-8d6e-64913e50fa50}</UniqueIdentifier>
+    <Filter Include="Source Files\Hacks">
+      <UniqueIdentifier>{3546658f-8608-4917-b128-ef0ede290994}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -57,10 +54,19 @@
     <ClCompile Include="Menu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Interfaces.cpp">
+    <ClCompile Include="InputSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="InputSystem.cpp">
+    <ClCompile Include="bhop.cpp">
+      <Filter>Source Files\Hacks</Filter>
+    </ClCompile>
+    <ClCompile Include="ClantagChanger.cpp">
+      <Filter>Source Files\Hacks</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InterfaceDefinitions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -101,9 +107,6 @@
     <ClInclude Include="..\..\..\..\Desktop\Menu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Interfaces.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -117,6 +120,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="InputSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bhop.h">
+      <Filter>Header Files\Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="ClantagChanger.h">
+      <Filter>Header Files\Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="InterfaceDefinitions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

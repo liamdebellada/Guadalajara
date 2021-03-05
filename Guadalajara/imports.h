@@ -15,7 +15,7 @@
 
 #include "offsets.h"
 #include "Menu.h"
-#include "Interfaces.h"
 #include "Entity.h"
 #include "EngineClient.h"
 #include "InputSystem.h"
+#include "InterfaceDefinitions.h"

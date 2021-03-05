@@ -152,11 +152,14 @@
     <ClCompile Include="..\ImGui\imgui_impl_win32.cpp" />
     <ClCompile Include="..\ImGui\imgui_tables.cpp" />
     <ClCompile Include="..\ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="bhop.cpp" />
+    <ClCompile Include="ClantagChanger.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="InputSystem.cpp" />
-    <ClCompile Include="Interfaces.cpp" />
+    <ClCompile Include="InterfaceDefinitions.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="PatternScanning.cpp" />
+    <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Desktop\Menu.h" />
@@ -168,15 +171,18 @@
     <ClInclude Include="..\ImGui\imstb_rectpack.h" />
     <ClInclude Include="..\ImGui\imstb_textedit.h" />
     <ClInclude Include="..\ImGui\imstb_truetype.h" />
+    <ClInclude Include="bhop.h" />
+    <ClInclude Include="ClantagChanger.h" />
     <ClInclude Include="detours.h" />
     <ClInclude Include="EngineClient.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Hack.h" />
     <ClInclude Include="imports.h" />
     <ClInclude Include="InputSystem.h" />
-    <ClInclude Include="Interfaces.h" />
+    <ClInclude Include="InterfaceDefinitions.h" />
     <ClInclude Include="Offsets.h" />
     <ClInclude Include="PatternScanning.h" />
+    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
