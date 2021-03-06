@@ -115,7 +115,7 @@ namespace hazedumper {
 		const uintptr_t dwForceAttack2 = 0x31D447C;
 		const uintptr_t dwForceBackward = 0x31D44AC;
 		const uintptr_t dwForceForward = 0x31D4488;
-		const uintptr_t dwForceJump = 0x524CE94;
+		const uintptr_t dwForceJump = 0x524CE84;
 		const uintptr_t dwForceLeft = 0x31D44A0;
 		const uintptr_t dwForceRight = 0x31D44C4;
 		const uintptr_t dwGameDir = 0x62D7F8;

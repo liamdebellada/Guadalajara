@@ -19,3 +19,7 @@
 #include "EngineClient.h"
 #include "InputSystem.h"
 #include "InterfaceDefinitions.h"
+#include "bhop.h"
+
+extern Ent* g_localplayer;
+extern DWORD g_clientModule;

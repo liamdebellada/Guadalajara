@@ -9,11 +9,13 @@ typedef LRESULT(CALLBACK* WNDPROC)(HWND, UINT, WPARAM, LPARAM);
 
 WNDPROC oWndProc;
 
-
 bool menuOpened = false;
 int previousKey = 0;
 int currentKey = 0;
 bool menuHold = false;
+
+Ent* g_localplayer = nullptr;
+DWORD g_clientModule = 0;
 
 HRESULT __stdcall Hooked_EndScene(IDirect3DDevice9* pDevice) // our hooked endscene
 {
@@ -76,12 +78,18 @@ DWORD WINAPI HackThread(HMODULE hModule) {
     std::cout << "Input interface: " << Interfaces->InputSystem << "\n";
 
     while (true) {
-        //bhop();
+        bhop();
         Interfaces->InputSystem->DisableAllInput(menuOpened);
+
+        //sets global instance of localplayer (redefining it every time this while true runs to keep it upto date)
+        if (!g_clientModule) {
+            std::cout << "Getting new client module" << "\n";
+            g_clientModule = (DWORD)GetModuleHandle("client.dll");
+        }
+        g_localplayer = (Ent*)Interfaces->ClientEntityList->GetClientEntity(Interfaces->EngineClient->GetLocalPlayer());
         //Ent* ent2 = (Ent*)ClientEntityList->GetClientEntity(1);
-        Ent* localplayer = (Ent*)Interfaces->ClientEntityList->GetClientEntity(Interfaces->EngineClient->GetLocalPlayer());
-        if (localplayer != nullptr) {
-            localplayer->m_iDefaultFOV = menu::fov;
+        if (g_localplayer != nullptr) {
+            g_localplayer->m_iDefaultFOV = menu::fov;
         }
     }
     return 0;

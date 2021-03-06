@@ -16,7 +16,3 @@ InterfaceCollection::InterfaceCollection() {
 	EngineClient = (IEngineClient*)GetInterface("engine.dll", "VEngineClient014");
 	InputSystem = (IInputSystem*)GetInterface("inputsystem.dll", "InputSystemVersion001");
 }
-
-//IClientEntityList* ClientEntityList = (IClientEntityList*)GetInterface("client.dll", "VClientEntityList003");
-//IEngineClient* EngineClient = (IEngineClient*)GetInterface("engine.dll", "VEngineClient014");
-//IInputSystem* InputSystem = (IInputSystem*)GetInterface("inputsystem.dll", "InputSystemVersion001");

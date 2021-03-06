@@ -1,5 +1,2 @@
 ﻿  dllmain.cpp
-  LINK : C:\Users\liamdebell\source\repos\Guadalajara\Debug\Guadalajara.dll not found or not built by the last incremental link; performing full link
-detours.lib(detours.obj) : warning LNK4099: PDB 'detours.pdb' was not found with 'detours.lib(detours.obj)' or at 'C:\Users\liamdebell\source\repos\Guadalajara\Debug\detours.pdb'; linking object as if no debug info
-detours.lib(disasm.obj) : warning LNK4099: PDB 'detours.pdb' was not found with 'detours.lib(disasm.obj)' or at 'C:\Users\liamdebell\source\repos\Guadalajara\Debug\detours.pdb'; linking object as if no debug info
   Guadalajara.vcxproj -> C:\Users\liamdebell\source\repos\Guadalajara\Debug\Guadalajara.dll
