@@ -1,5 +1,6 @@
 ﻿#include "InterfaceDefinitions.h"
 #include <Windows.h>
+#include <iostream>
 
 InterfaceCollection* Interfaces = nullptr;
 
@@ -15,4 +16,5 @@ InterfaceCollection::InterfaceCollection() {
 	ClientEntityList = (IClientEntityList*)GetInterface("client.dll", "VClientEntityList003");
 	EngineClient = (IEngineClient*)GetInterface("engine.dll", "VEngineClient014");
 	InputSystem = (IInputSystem*)GetInterface("inputsystem.dll", "InputSystemVersion001");
+	ClientMode = (char*)GetInterface("client.dll", "VClient018");
 }

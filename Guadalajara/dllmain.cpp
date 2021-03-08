@@ -1,4 +1,5 @@
 #include "imports.h"
+#include "CUserCmd.h"
 #include <string>
 const char* csgo = "Counter-Strike: Global Offensive";
 extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
@@ -72,23 +73,40 @@ LRESULT __stdcall WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
     return CallWindowProc(oWndProc, hWnd, uMsg, wParam, lParam);
 }
 
+typedef bool(__stdcall* CreateMoveFn)(float, CUserCmd*);
+static CreateMoveFn originalFn;
+
+bool __stdcall hkCreateMove(float sampleTime, CUserCmd* cmd)
+{
+    //cmd->viewangles.y = (float)menu::fov;
+    std::cout << cmd->viewangles.y << "\n";
+    return originalFn(sampleTime, cmd);
+}
+
 DWORD WINAPI HackThread(HMODULE hModule) {
     std::cout << "Entity interface: " << Interfaces->ClientEntityList << "\n";
     std::cout << "Engine interface: " << Interfaces->EngineClient << "\n";
     std::cout << "Input interface: " << Interfaces->InputSystem << "\n";
+    //std::cout << "Createmove address: " << (int) << "\n";
+
+   // auto createMoveAddy = (char*)((*(void***)Interfaces->ClientMode)[24]);
+    uintptr_t cmad = FindPattern("client.dll", "55 8B EC 8B 0D ? ? ? ? 85 C9 75 06");
+    //std::cout << (int)createMoveAddy << "\n";
+    //std::cout << cmad << "\n";
+
+    originalFn = (CreateMoveFn)DetourFunction((PBYTE)cmad, (PBYTE)hkCreateMove);
 
     while (true) {
-        bhop();
         Interfaces->InputSystem->DisableAllInput(menuOpened);
 
-        //sets global instance of localplayer (redefining it every time this while true runs to keep it upto date)
         if (!g_clientModule) {
-            std::cout << "Getting new client module" << "\n";
             g_clientModule = (DWORD)GetModuleHandle("client.dll");
         }
+        
         g_localplayer = (Ent*)Interfaces->ClientEntityList->GetClientEntity(Interfaces->EngineClient->GetLocalPlayer());
-        //Ent* ent2 = (Ent*)ClientEntityList->GetClientEntity(1);
+        
         if (g_localplayer != nullptr) {
+            bhop();
             g_localplayer->m_iDefaultFOV = menu::fov;
         }
     }

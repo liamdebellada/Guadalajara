@@ -1,0 +1,14 @@
+﻿  bhop.cpp
+  ClantagChanger.cpp
+  dllmain.cpp
+C:\Users\liamdebell\source\repos\Guadalajara\Guadalajara\dllmain.cpp(86,65): error C2664: 'HMODULE GetModuleHandleW(LPCWSTR)': cannot convert argument 1 from 'const char [11]' to 'LPCWSTR'
+C:\Users\liamdebell\source\repos\Guadalajara\Guadalajara\dllmain.cpp(86,53): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\libloaderapi.h(269,1): message : see declaration of 'GetModuleHandleW'
+C:\Users\liamdebell\source\repos\Guadalajara\Guadalajara\dllmain.cpp(132,9): error C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\liamdebell\source\repos\Guadalajara\Guadalajara\dllmain.cpp(133,9): error C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  InterfaceDefinitions.cpp
+C:\Users\liamdebell\source\repos\Guadalajara\Guadalajara\InterfaceDefinitions.cpp(8,93): error C2664: 'HMODULE GetModuleHandleW(LPCWSTR)': cannot convert argument 1 from 'const char *' to 'LPCWSTR'
+C:\Users\liamdebell\source\repos\Guadalajara\Guadalajara\InterfaceDefinitions.cpp(8,86): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\libloaderapi.h(269,1): message : see declaration of 'GetModuleHandleW'
+  Menu.cpp
+  Utils.cpp

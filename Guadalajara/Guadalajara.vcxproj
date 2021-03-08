@@ -77,6 +77,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86\;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -173,10 +175,12 @@
     <ClInclude Include="..\ImGui\imstb_truetype.h" />
     <ClInclude Include="bhop.h" />
     <ClInclude Include="ClantagChanger.h" />
+    <ClInclude Include="CUserCmd.h" />
     <ClInclude Include="detours.h" />
     <ClInclude Include="EngineClient.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Hack.h" />
+    <ClInclude Include="IClientMode.h" />
     <ClInclude Include="imports.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="InterfaceDefinitions.h" />
