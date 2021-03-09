@@ -78,21 +78,23 @@ static CreateMoveFn originalFn;
 
 bool __stdcall hkCreateMove(float sampleTime, CUserCmd* cmd)
 {
-    //cmd->viewangles.y = (float)menu::fov;
-    std::cout << cmd->viewangles.y << "\n";
-    return originalFn(sampleTime, cmd);
+    bhop();
+    originalFn(sampleTime, cmd);
+    if (menu::breakAngles) {
+        cmd->viewangles.y = 60.f;
+        return false;
+    }
+    else {
+        return true;
+    }
 }
 
 DWORD WINAPI HackThread(HMODULE hModule) {
     std::cout << "Entity interface: " << Interfaces->ClientEntityList << "\n";
     std::cout << "Engine interface: " << Interfaces->EngineClient << "\n";
     std::cout << "Input interface: " << Interfaces->InputSystem << "\n";
-    //std::cout << "Createmove address: " << (int) << "\n";
 
-   // auto createMoveAddy = (char*)((*(void***)Interfaces->ClientMode)[24]);
-    uintptr_t cmad = FindPattern("client.dll", "55 8B EC 8B 0D ? ? ? ? 85 C9 75 06");
-    //std::cout << (int)createMoveAddy << "\n";
-    //std::cout << cmad << "\n";
+    uintptr_t cmad = (uintptr_t)((*(void***)Interfaces->ClientMode)[24]);
 
     originalFn = (CreateMoveFn)DetourFunction((PBYTE)cmad, (PBYTE)hkCreateMove);
 
@@ -106,7 +108,6 @@ DWORD WINAPI HackThread(HMODULE hModule) {
         g_localplayer = (Ent*)Interfaces->ClientEntityList->GetClientEntity(Interfaces->EngineClient->GetLocalPlayer());
         
         if (g_localplayer != nullptr) {
-            bhop();
             g_localplayer->m_iDefaultFOV = menu::fov;
         }
     }

@@ -180,6 +180,7 @@
     <ClInclude Include="EngineClient.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Hack.h" />
+    <ClInclude Include="IBaseClient.h" />
     <ClInclude Include="IClientMode.h" />
     <ClInclude Include="imports.h" />
     <ClInclude Include="InputSystem.h" />

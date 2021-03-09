@@ -134,10 +134,13 @@
     <ClInclude Include="Utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IClientMode.h">
+    <ClInclude Include="CUserCmd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CUserCmd.h">
+    <ClInclude Include="IBaseClient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IClientMode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
