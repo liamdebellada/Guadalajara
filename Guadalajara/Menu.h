@@ -6,4 +6,5 @@ namespace menu {
 	extern bool isBhop;
 	extern bool breakAngles;
 	void main();
+	void secondary();
 }

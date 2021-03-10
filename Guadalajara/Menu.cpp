@@ -9,13 +9,18 @@ static char clanTagString[128] = "";
 
 void menu::main()
 {
-	//application
 	ImGui::Begin("Gudalajara horn");
 	ImGui::Text("Saddle text");
 	ImGui::SliderInt("Fov", &menu::fov, -180, 180);
 	ImGui::InputText("Clantag text", clanTagString, IM_ARRAYSIZE(clanTagString));
 	if (ImGui::Button("Update tag")) ClantagChanger::SetClanTag((const char *)clanTagString);
 	ImGui::Checkbox("Bhop", &menu::isBhop);
-	ImGui::Checkbox("Break Angles", &menu::breakAngles);
+	ImGui::Checkbox("Texas Rodeo", &menu::breakAngles);
+	ImGui::End();
+}
+
+void menu::secondary() {
+	ImGui::Begin("Gudalajara horn 2");
+	ImGui::Text("Window2");
 	ImGui::End();
 }

@@ -157,6 +157,7 @@
     <ClCompile Include="bhop.cpp" />
     <ClCompile Include="ClantagChanger.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="hooks.cpp" />
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="InterfaceDefinitions.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -180,6 +181,7 @@
     <ClInclude Include="EngineClient.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Hack.h" />
+    <ClInclude Include="hooks.h" />
     <ClInclude Include="IBaseClient.h" />
     <ClInclude Include="IClientMode.h" />
     <ClInclude Include="imports.h" />

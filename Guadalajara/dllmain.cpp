@@ -1,5 +1,5 @@
 #include "imports.h"
-#include "CUserCmd.h"
+#include "hooks.h"
 #include <string>
 const char* csgo = "Counter-Strike: Global Offensive";
 extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
@@ -45,9 +45,10 @@ HRESULT __stdcall Hooked_EndScene(IDirect3DDevice9* pDevice) // our hooked endsc
             menuOpened = !menuOpened;
         }
     }
-
+    
     previousKey = currentKey;
     ImGui::GetIO().MouseDrawCursor = menuOpened;
+    Interfaces->InputSystem->DisableAllInput(menuOpened);
     if (menuOpened) {
         ImGui_ImplDX9_NewFrame();
         ImGui_ImplWin32_NewFrame();
@@ -55,6 +56,7 @@ HRESULT __stdcall Hooked_EndScene(IDirect3DDevice9* pDevice) // our hooked endsc
 
         //application
         menu::main();
+        menu::secondary();
 
         //render
         ImGui::EndFrame();
@@ -73,34 +75,15 @@ LRESULT __stdcall WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
     return CallWindowProc(oWndProc, hWnd, uMsg, wParam, lParam);
 }
 
-typedef bool(__stdcall* CreateMoveFn)(float, CUserCmd*);
-static CreateMoveFn originalFn;
-
-bool __stdcall hkCreateMove(float sampleTime, CUserCmd* cmd)
-{
-    bhop();
-    originalFn(sampleTime, cmd);
-    if (menu::breakAngles) {
-        cmd->viewangles.y = 60.f;
-        return false;
-    }
-    else {
-        return true;
-    }
-}
 
 DWORD WINAPI HackThread(HMODULE hModule) {
     std::cout << "Entity interface: " << Interfaces->ClientEntityList << "\n";
     std::cout << "Engine interface: " << Interfaces->EngineClient << "\n";
     std::cout << "Input interface: " << Interfaces->InputSystem << "\n";
 
-    uintptr_t cmad = (uintptr_t)((*(void***)Interfaces->ClientMode)[24]);
-
-    originalFn = (CreateMoveFn)DetourFunction((PBYTE)cmad, (PBYTE)hkCreateMove);
+    Hooks::init();
 
     while (true) {
-        Interfaces->InputSystem->DisableAllInput(menuOpened);
-
         if (!g_clientModule) {
             g_clientModule = (DWORD)GetModuleHandle("client.dll");
         }
