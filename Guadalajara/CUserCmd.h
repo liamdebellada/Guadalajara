@@ -1,8 +1,6 @@
 #pragma once
-struct QAngle { float x, y, z; };
-
-
-struct Vector{ float  x,y,z; };
+#include "Vector.h"
+#include "QAngle.h"
 
 class CUserCmd {
 public:

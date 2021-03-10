@@ -1,2 +1,3 @@
-﻿  dllmain.cpp
+﻿  hooks.cpp
+C:\Users\liamdebell\source\repos\Guadalajara\Guadalajara\hooks.cpp(63,17): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   Guadalajara.vcxproj -> C:\Users\liamdebell\source\repos\Guadalajara\Debug\Guadalajara.dll

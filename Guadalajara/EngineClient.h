@@ -1,4 +1,6 @@
 #pragma once
+#include "QAngle.h"
+
 typedef struct InputContextHandle_t__* InputContextHandle_t;
 struct client_textmessage_t;
 struct model_t;
@@ -18,6 +20,7 @@ class KeyValues;
 class CSteamAPIContext;
 struct Frustum_t;
 class pfnDemoCustomDataCallback;
+
 
 struct player_info_t {
 	char __pad0[0x8];
@@ -59,11 +62,11 @@ public:
 	virtual float                 GetSentenceLength(CAudioSource* pAudioSource) = 0;
 	virtual bool                  IsStreaming(CAudioSource* pAudioSource) const = 0;
 
-	virtual void func4() = 0;
-	virtual void func5() = 0;
+	//virtual void func4() = 0;
+	//virtual void func5() = 0;
 
-	//virtual void                  GetViewAngles(QAngle& va) = 0;
-	//virtual void                  SetViewAngles(QAngle& va) = 0;
+	virtual void                  GetViewAngles(QAngle& va) = 0;
+	virtual void                  SetViewAngles(QAngle& va) = 0;
 	virtual int                   GetMaxClients(void) = 0; // 20
 	virtual   const char* Key_LookupBinding(const char* pBinding) = 0;
 	virtual const char* Key_BindingForKey(int& code) = 0;
